@@ -1,0 +1,22 @@
+.post-container {
+    width: 540px;
+    border: 1px solid grey;
+}
+
+.thumbnail-section {
+    display: flex;
+    align-items: center;
+    margin: 6px 10px 0 18px;
+    font-size: 13.5px;
+    font-weight: bold;
+}
+
+.thumbnail {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+}
+
+.main-img {
+    width: 540px;    
+}
