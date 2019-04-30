@@ -1,3 +1,10 @@
 .App {
   /*text-align: center;*/
+  width: 540px;
+}
+
+.main-header {
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid grey;
 }

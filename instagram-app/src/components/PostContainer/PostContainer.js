@@ -14,7 +14,7 @@ function PostContainer(props) {
 			<img className="main-img"src={props.post.imageUrl} />
 			<div className="bottom-container">
 				<p className="likes">{props.post.likes} likes</p>
-				<CommentSection comments={props.post.comments} />
+				<CommentSection comments={props.post.comments} postIndex={props.postIndex} updateComments={props.updateComments}/>
 			</div>
 			<div className="time-stamp">{props.post.timestamp}</div>
 		</div>

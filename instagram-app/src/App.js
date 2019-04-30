@@ -8,15 +8,32 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      postData: dummyData
+      postData: [],
     }
   };
+
+  componentDidMount() {
+    this.setState({
+      postData: dummyData
+    }); 
+  }
+
+  // updateComments(newCommets, postIndex) {
+  //   let newState = this.state.postData;
+  //   newState[postIndex].comments = newCommets;
+  //   this.setState({
+  //     postData: newState
+  //   });
+  // }
 
   render() {
     return (
       <div className="App">
-        {this.state.postData.map(post => {
-          return <PostContainer key={post.id} post={post}/>
+        <header className="main-header">
+          <SearchBar />
+        </header>
+        {this.state.postData.map( (post,i) => {
+          return <PostContainer key={post.id} post={post} postIndex={i} updateComments={this.updateComments}/>
         })}
       </div>
     );

@@ -1,6 +1,7 @@
 .post-container {
     width: 540px;
-    border: 1px solid grey;
+    /*margin: 0 auto;*/
+    border: 1px solid lightgrey;
 }
 
 .thumbnail-section {
@@ -43,4 +44,13 @@
     color: grey;
     font-size: 10px;
     padding: 4px 0 4px 14px;
+}
+
+.post-container .add-comment {
+    width: 93%;
+    color: grey;
+    padding: 17px 0 17px 12px;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid grey;
 }
