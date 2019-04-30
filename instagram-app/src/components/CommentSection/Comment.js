@@ -4,7 +4,7 @@ import './CommentSection.css';
 
 function Comment(props) {
 	return(
-		<div className="comment">{props.comment.text}</div>
+		<div className="comment"><span className="username">{props.comment.username}</span> {props.comment.text}</div>
 	);
 }
 
