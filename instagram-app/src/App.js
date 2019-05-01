@@ -1,44 +1,23 @@
 import React from 'react';
-import dummyData from './dummy-data';
-import SearchBar from './components/SearchBar/SearchBar.js';
 import PostsPage from './components/PostContainer/PostsPage.js';
+import withAuthenticate from './components/authentication/withAuthenticate.js';
+
 import './App.css';
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-      postData: [],
-      filteredPostData: []
-    }
+    this.state = {}
   };
-
-  componentDidMount() {
-    this.setState({
-      postData: dummyData
-    });
-  }
-
-  filterPosts = event => {
-    console.log(event.target);
-    let posts = this.state.postData.filter(post => {if (post.username.includes(event.target.value)) {
-      return post;
-    }});
-    this.setState({
-      filteredPostData: posts
-    });
-    console.log(this.state.filteredPostData);
-  }
 
   render() {
     return (
       <div className="App">
-        <header className="main-header">
-          <SearchBar filterPosts={this.filterPosts}/>
-        </header>
-        <PostsPage 
+        <ComponentFromWithAuthenticate 
         postData={this.state.postData} 
-        filteredPostData={this.state.filteredPostData} 
+        filteredPostData={this.state.filteredPostData}
         />
       </div>
     );
