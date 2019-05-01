@@ -1,7 +1,7 @@
 import React from 'react';
 import dummyData from './dummy-data';
-import PostContainer from './components/PostContainer/PostContainer.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
+import PostsPage from './components/PostContainer/PostsPage.js';
 import './App.css';
 
 class App extends React.Component {
@@ -36,14 +36,10 @@ class App extends React.Component {
         <header className="main-header">
           <SearchBar filterPosts={this.filterPosts}/>
         </header>
-        {this.state.filteredPostData.length > 0 ?
-          this.state.filteredPostData.map( (post) => {
-            return <PostContainer key={post.id} post={post} />
-          }) :
-          this.state.postData.map( (post) => {
-            return <PostContainer key={post.id} post={post} /> 
-          })
-        }
+        <PostsPage 
+        postData={this.state.postData} 
+        filteredPostData={this.state.filteredPostData} 
+        />
       </div>
     );
   }
