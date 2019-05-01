@@ -9,6 +9,7 @@ class App extends React.Component {
     super();
     this.state = {
       postData: [],
+      filteredPostData: []
     }
   };
 
@@ -18,23 +19,31 @@ class App extends React.Component {
     });
   }
 
-  addLikeHandler = (i) => {
-    let newState = this.state.postData;
-    newState[i].likes += 1;
+  filterPosts = event => {
+    console.log(event.target);
+    let posts = this.state.postData.filter(post => {if (post.username.includes(event.target.value)) {
+      return post;
+    }});
     this.setState({
-      postData: newState
+      filteredPostData: posts
     });
+    console.log(this.state.filteredPostData);
   }
 
   render() {
     return (
       <div className="App">
         <header className="main-header">
-          <SearchBar />
+          <SearchBar filterPosts={this.filterPosts}/>
         </header>
-        {this.state.postData.map( (post,i) => {
-          return <PostContainer key={post.id} post={post} addLike={this.addLikeHandler} postIndex={i}/>
-        })}
+        {this.state.filteredPostData.length > 0 ?
+          this.state.filteredPostData.map( (post) => {
+            return <PostContainer key={post.id} post={post} />
+          }) :
+          this.state.postData.map( (post) => {
+            return <PostContainer key={post.id} post={post} /> 
+          })
+        }
       </div>
     );
   }

@@ -4,7 +4,7 @@ import './SearchBar.css';
 
 function SearchBar(props) {
 	return(
-		<input className="search-bar" placeholder="Search"></input>
+		<input className="search-bar" type="text" onChange={props.filterPosts} placeholder="Search"></input>
 	);
 }
 
