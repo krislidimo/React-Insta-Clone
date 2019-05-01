@@ -1,7 +1,7 @@
 .post-container {
     width: 540px;
-    /*margin: 0 auto;*/
     border: 1px solid lightgrey;
+    margin-bottom: 40px;
 }
 
 .thumbnail-section {
@@ -32,25 +32,6 @@
     font-weight: bold;
 }
 
-.comment {
-    padding : 2px 0;
-}
-
-.username {
-    font-weight: bold;
-}
-
-.time-stamp {
-    color: grey;
-    font-size: 10px;
-    padding: 4px 0 4px 14px;
-}
-
-.post-container .add-comment {
-    width: 93%;
-    color: grey;
-    padding: 17px 0 17px 12px;
-    margin: 0 auto;
-    border: none;
-    border-top: 1px solid grey;
+.far {
+    margin: 12px 12px 0 0;
 }

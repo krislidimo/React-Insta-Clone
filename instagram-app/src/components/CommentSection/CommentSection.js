@@ -14,17 +14,15 @@ class CommentSection extends React.Component {
 		};
 	};
 
-	addNewComment = (event, i=this.props.postIndex) => {
+	addNewComment = event => {
 		event.preventDefault();
 		this.setState({
 			comments: [...this.state.comments, {
-				username: "",
+				username: "test",
 				text: this.state.comment
 			}],
 			comment: ''
 		});
-
-		this.props.updateComments(this.state.comments, i);
 	};
 
 	updateComment = event => {
@@ -36,9 +34,10 @@ class CommentSection extends React.Component {
 	render() {
 		return(
 			<div className="comment-section">
-				{this.props.comments.map(comment => {
+				{this.state.comments.map(comment => {
 					return <Comment key={comment.id} comment={comment} />
 				})}
+				<div className="time-stamp">{this.props.timeStamp}</div>
 				<InputComment currentComment={this.state.commet} updateComment={this.updateComment} addNewComment={this.addNewComment}/>
 			</div>
 		);

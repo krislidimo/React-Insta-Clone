@@ -15,16 +15,16 @@ class App extends React.Component {
   componentDidMount() {
     this.setState({
       postData: dummyData
-    }); 
+    });
   }
 
-  // updateComments(newCommets, postIndex) {
-  //   let newState = this.state.postData;
-  //   newState[postIndex].comments = newCommets;
-  //   this.setState({
-  //     postData: newState
-  //   });
-  // }
+  addLikeHandler = (i) => {
+    let newState = this.state.postData;
+    newState[i].likes += 1;
+    this.setState({
+      postData: newState
+    });
+  }
 
   render() {
     return (
@@ -33,7 +33,7 @@ class App extends React.Component {
           <SearchBar />
         </header>
         {this.state.postData.map( (post,i) => {
-          return <PostContainer key={post.id} post={post} postIndex={i} updateComments={this.updateComments}/>
+          return <PostContainer key={post.id} post={post} addLike={this.addLikeHandler} postIndex={i}/>
         })}
       </div>
     );
