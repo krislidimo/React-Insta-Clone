@@ -20,14 +20,12 @@ class PostsPage extends React.Component {
   }
 
   filterPosts = event => {
-    console.log(event.target);
     let posts = this.state.postData.filter(post => {if (post.username.includes(event.target.value)) {
       return post;
     }});
     this.setState({
       filteredPostData: posts
     });
-    console.log(this.state.filteredPostData);
   }
 
   render() {

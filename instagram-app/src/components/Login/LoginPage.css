@@ -1,0 +1,27 @@
+.login-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/*border: 1px solid lightgrey;*/
+}
+
+.username, .password {
+	width: 50%;
+	height: 24px;
+	margin-bottom: 10px;
+	border: 1px solid lightgrey;
+
+}
+
+.login-btn {
+	background-color: lightgrey;
+	border: 1px solid lightgrey;
+	border-radius: 2px;
+	width: 26%;
+	height: 34px;
+	font-size: 16px;
+}
+.login-page h2 {
+	/*align-self: flex-start;*/
+	width: 50%;
+}
