@@ -6,19 +6,16 @@ import styled from 'styled-components';
 
 import './PostContainer.css';
 
+const PostPage = styled.div`
+	width: 540px;
+  margin-bottom: 40px;
+`;
+
 const Header = styled.header`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: .4rem 0;
-`;
-
-const LeftSide = styled.div`
-	margin: 0;
-`;
-
-const RightSide = styled.div`
-	margin: 0;
+	margin: .4rem 0.2rem;
 `;
 
 const H3 = styled.h3`
@@ -55,14 +52,16 @@ class PostsPage extends React.Component {
 
   render() {
 		return (
-			<div className="PostsPage">
-				<Header className="main-header">
-					<div className="left-side">
+			<PostPage>
+				<Header>
+					<div>
 						<i class="fab fa-instagram fa-lg"></i>
 						<H3>Instagram</H3>
 					</div>
+
 	        <SearchBar filterPosts={this.filterPosts}/>
-	        <div className="right-side">
+
+	        <div>
 	        	<i class="far fa-compass fa-lg"></i>
 	        	<i class="far fa-heart fa-lg"></i>
 	        	<i class="fas fa-user-astronaut fa-lg"></i>
@@ -78,7 +77,7 @@ class PostsPage extends React.Component {
 	          return <PostContainer key={post.id} post={post} /> 
 	        })
 	      }
-	    </div>
+	    </PostPage>
 		);
 	}
 }

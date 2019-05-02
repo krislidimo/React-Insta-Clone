@@ -1,37 +1,3 @@
-.post-container {
-    width: 540px;
-    border: 1px solid lightgrey;
-    margin-bottom: 40px;
-}
-
-.thumbnail-section {
-    display: flex;
-    align-items: center;
-    margin: 6px 0px 6px 0px;
-    font-size: 13.5px;
-    font-weight: bold;
-}
-
-.thumbnail {
-    width: 27px;
-    height: 27px;
-    margin: 0 6px 0 18px;
-    border-radius: 50%;
-}
-
-.main-img {
-    width: 540px;    
-}
-
-.bottom-container {
-    padding: 0 14px;
-    font-size: 14px;
-}
-
-.likes {
-    font-weight: bold;
-}
-
 .far {
     margin: 12px 12px 0 0;
 }

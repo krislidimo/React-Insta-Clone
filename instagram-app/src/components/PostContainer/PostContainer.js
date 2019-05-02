@@ -1,8 +1,44 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection.js';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import './PostContainer.css';
 
+const Post = styled.div`
+	width: 540px;
+  border: 1px solid lightgrey;
+  margin-bottom: 40px;
+`;
+
+const ThumbnailSection = styled.div`
+	display: flex;
+  align-items: center;
+  margin: 6px 0px 6px 0px;
+  font-size: 13.5px;
+  font-weight: bold;
+
+    .thumbnail {
+	    width: 27px;
+	    height: 27px;
+	    margin: 0 6px 0 18px;
+	    border-radius: 50%;
+		}
+`;
+
+const MainImage = styled.img`
+  width: 100%;    
+`;
+
+const BottomContainer = styled.div`
+	padding: 0 14px;
+  font-size: 14px;
+`;
+
+const LikesSection = styled.div`
+  font-weight: bold;
+  margin: 10px 0;
+`;
 
 class PostContainer extends React.Component{
 	constructor(props) {
@@ -20,21 +56,21 @@ class PostContainer extends React.Component{
 
 	render() {
 		return(
-			<div className="post-container">
-				<div className="thumbnail-section">
+			<Post>
+				<ThumbnailSection>
 					<img className="thumbnail" src={this.props.post.thumbnailUrl} />
 					<p>{this.props.post.username}</p>
-				</div>
-				<img className="main-img"src={this.props.post.imageUrl} />
-				<div className="bottom-container">
+				</ThumbnailSection>
+				<MainImage src={this.props.post.imageUrl} />
+				<BottomContainer>
 					<div className="icons">
 						<i className="far fa-heart fa-2x" onClick={this.addLike}></i>
 						<i className="far fa-comment fa-2x"></i>
 					</div>
-					<p className="likes">{this.state.likes} likes</p>
+					<LikesSection>{this.state.likes} likes</LikesSection>
 					<CommentSection comments={this.props.post.comments} timeStamp={this.props.post.timestamp}/>
-				</div>
-			</div>
+				</BottomContainer>
+			</Post>
 		);
 	}
 };
