@@ -2,7 +2,32 @@ import React from 'react';
 import dummyData from '../../dummy-data.js';
 import SearchBar from '../../components/SearchBar/SearchBar.js';
 import PostContainer from './PostContainer.js';
+import styled from 'styled-components';
+
 import './PostContainer.css';
+
+const Header = styled.header`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: .4rem 0;
+`;
+
+const LeftSide = styled.div`
+	margin: 0;
+`;
+
+const RightSide = styled.div`
+	margin: 0;
+`;
+
+const H3 = styled.h3`
+	display: inline-block;
+	margin: 0;
+	margin-left: 10px;
+	padding-left: 10px;
+	border-left: 1px solid lightgrey;
+`;
 
 class PostsPage extends React.Component {
 	constructor() {
@@ -31,14 +56,25 @@ class PostsPage extends React.Component {
   render() {
 		return (
 			<div className="PostsPage">
-				<header className="main-header">
+				<Header className="main-header">
+					<div className="left-side">
+						<i class="fab fa-instagram fa-lg"></i>
+						<H3>Instagram</H3>
+					</div>
 	        <SearchBar filterPosts={this.filterPosts}/>
-	      </header>
-	      {this.state.filteredPostData.length > 0 ?
-	        this.state.filteredPostData.map( (post) => {
+	        <div className="right-side">
+	        	<i class="far fa-compass fa-lg"></i>
+	        	<i class="far fa-heart fa-lg"></i>
+	        	<i class="fas fa-user-astronaut fa-lg"></i>
+	        </div>
+	      </Header>
+
+	      {
+	      	this.state.filteredPostData.length > 0 
+	      	? this.state.filteredPostData.map( (post) => {
 	          return <PostContainer key={post.id} post={post} />
-	        }) :
-	        this.state.postData.map( (post) => {
+	        }) 
+	        : this.state.postData.map( (post) => {
 	          return <PostContainer key={post.id} post={post} /> 
 	        })
 	      }
