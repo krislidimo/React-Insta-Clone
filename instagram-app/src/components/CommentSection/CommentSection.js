@@ -2,8 +2,15 @@ import React from 'react';
 import Comment from './Comment.js';
 import PropTypes from 'prop-types';
 import InputComment from './InputComment.js';
+import styled from 'styled-components';
+
 import './CommentSection.css';
 
+const TimeStamp = styled.div`
+	color: grey;
+    font-size: 10px;
+    padding: 8px 0;
+`;
 
 class CommentSection extends React.Component {
 	constructor(props) {
@@ -33,11 +40,11 @@ class CommentSection extends React.Component {
 
 	render() {
 		return(
-			<div className="comment-section">
+			<div>
 				{this.state.comments.map(comment => {
 					return <Comment key={comment.id} comment={comment} />
 				})}
-				<div className="time-stamp">{this.props.timeStamp}</div>
+				<TimeStamp>{this.props.timeStamp}</TimeStamp>
 				<InputComment currentComment={this.state.commet} updateComment={this.updateComment} addNewComment={this.addNewComment}/>
 			</div>
 		);

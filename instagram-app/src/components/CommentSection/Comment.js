@@ -1,10 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import './CommentSection.css';
 
+const DivComment = styled.div`
+    padding : 2px 0;
+`;
+
+const User = styled.span`
+    font-weight: bold;
+`;
 
 function Comment(props) {
 	return(
-		<div className="comment"><span className="user">{props.comment.username}</span> {props.comment.text}</div>
+		<DivComment className="comment"><User className="user">{props.comment.username}</User> {props.comment.text}</DivComment>
 	);
 }
 
