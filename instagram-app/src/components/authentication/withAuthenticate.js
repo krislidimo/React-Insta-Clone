@@ -5,7 +5,9 @@ const withAuthenticate = PostsPage => LoginPage  =>
 		constructor() {
 			super();
 			this.state = {
-				loggedIn: false
+				loggedIn: false,
+				username: "",
+				password: ""
 			};
 		}
 
@@ -21,9 +23,29 @@ const withAuthenticate = PostsPage => LoginPage  =>
 			}
 		}
 
+		loginHandler = event => {
+			event.preventDefault();
+			localStorage.setItem(this.state.username, this.state.password);
+			console.log(localStorage.getItem(this.state.username));
+			this.setState({
+				loggedIn: true
+			});
+		};
+
+		udateInfo = event => {
+			this.setState({
+				[event.target.name]: event.target.value
+			});
+		};
+
 		render() {
 			return (
-				this.state.loggedIn ? <PostsPage /> : <LoginPage />
+				this.state.loggedIn ? <PostsPage /> : <LoginPage 
+					currentUsername={this.state.username}
+					currentPassword={this.state.password}
+					udateInfo={this.udateInfo}
+					loginHandler={this.loginHandler}
+					/>
 			);
 		}
 	};
